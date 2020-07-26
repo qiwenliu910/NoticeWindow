@@ -1,3 +1,4 @@
 const cg = new WindowGenerator()
-cg.makewindow()
+cg.makeInputWindow()
+cg.makeNoticeWindow()
 
