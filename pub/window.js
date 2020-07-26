@@ -21,7 +21,7 @@ WindowGenerator.prototype = {
   },
 
   makeInputWindow: function () {
-    let window = '<div class="input-popup-overlay"><div class="input-popup-content"><h2>Pop-Up with Input</h2><p> This is an example pop-up with Input Window.</p><input type="text" id="fname" name="fname"><input type="submit"><br><button id = "closeButton" onclick="handleClick()" class="close">Close</button> </div></div>'
+    let window = '<div class="input-popup-overlay"><div class="input-popup-content"><h2>Pop-Up with Input</h2><p> This is an example pop-up with Input Window.</p><form><label for="fname">First name:</label><br><input type="text" id="fname" name="fname" value=""><br><label for="lname">Last name:</label><br><input type="text" id="lname" name="lname" value=""><br><br><input type="submit" value="Submit"></form><br><button id = "closeButton" onclick="handleClick()" class="close">Close</button> </div></div>'
     $('#InputWindowLocation').html(window);
     const openButton = document.querySelector('#openInputButton');
     openButton.onclick = function(event) {  
