@@ -6,9 +6,13 @@ function WindowGenerator() {
 
 WindowGenerator.prototype = {
 
-	makeNoticeWindow: function() {
-
-    let window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><h2>Pop-Up</h2><p> This is an example pop-up.</p><button id = "closeButton" onclick="handleClick()" class="close">Close</button> </div></div>'
+	makeNoticeWindow: function(inputObject) {
+    const defaultNoticeWindow = {
+      header: "this is header",
+      content: "this is content"
+  }
+  const noticeWindow = Object.assign(defaultNoticeWindow, inputObject)
+    let window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><h2>'.concat(noticeWindow.header,'</h2><p>',noticeWindow.content,'.</p><button id = "closeButton" onclick="handleClick()" class="close">Close</button> </div></div>')
     $('#NoticeWindowLocation').html(window);
     const openButton = document.querySelector('#openNoticeButton');
     openButton.onclick = function(event) {  
