@@ -78,6 +78,42 @@ html {
   visibility: hidden;
 }
 
+.rotate-image-popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility: visible;
+  display:inline-block;
+}
+.rotate-image-popup-overlay {
+  /*Hides pop-up when there is no "active" class*/
+  visibility: hidden;
+  position: absolute;
+  background: #ffffff;
+  border: 2px solid  #ffffff;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+}
+
+.rotate-image-popup-overlay.active {
+  /*displays pop-up when "active" class is present*/
+  visibility: visible;
+  text-align: center;
+}
+.rotate-image-popup-content {
+  /*Hides pop-up content when there is no "active" class */
+  visibility: hidden;
+}
+.imagePosition {
+  animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 .image-popup-content.active {
   /*Shows pop-up content when "active" class is present */
   visibility: visible;
