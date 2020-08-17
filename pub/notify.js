@@ -13,6 +13,10 @@ function WindowGenerator() {
     time:null,
     header: "this is the image header"
   }
+  this.defaultRotateImageWindow = {
+    time:null,
+    header: "Please rotate the image to the correct position and click sumbit to proceed",
+  }
 }
 
 WindowGenerator.prototype = {
@@ -89,36 +93,50 @@ WindowGenerator.prototype = {
 
   },
   makeRotateImageWindow: function (url, imgSrc) {
-    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultImageWindow.header,'</div></h2><div class = "imagePosition"><a href =" ',url,'" target = "_blank"><img id="rotater" src = "',imgSrc,'"/></a></div><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> </div></div>')
+    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> <br> <button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button></div></div>')
     $('#RotateImageWindowLocation').html(imageWindow);
     const openButton = document.querySelector('#openRotateImageButton');
     openButton.onclick = function(event) {  
         $(".rotate-image-popup-overlay, .rotate-image-popup-content").addClass("active");     
     }
+    const submitButton = document.querySelector("#submitImageButton")
+    submitButton.onclick = function() {
+      if (currentAngle === 0) {
+       console.log("true")
+        window.location=url;
+      }
+      else {
+       
+      }
+    }
     const closeButton = document.querySelector('#closeRotateImageButton');
     closeButton.onclick = function(event) {
       $(".rotate-image-popup-overlay, .rotate-image-popup-content").removeClass("active");
     }
-    let currentAngle = 0;
+    const min = Math.ceil(1);
+    const max = Math.floor(9);
+    let currentAngle = (Math.floor(Math.random() * (max - min + 1)) + min) * 10;
+    img = document.getElementById('rotater')
+    img.setAttribute("style", "transform: rotate(" + currentAngle + "deg)")
 
     const leftButton = document.querySelector('#leftImageButton');
     leftButton.onclick = function(event) {
-      let leftRotateAngle = currentAngle + 10;
+      let leftRotateAngle = currentAngle - 10;
       // $('.imagePosition img').css('transform', "rotate(90deg)")
       img = document.getElementById('rotater')
       img.setAttribute("style", "transform: rotate(" + leftRotateAngle + "deg)")
-      leftRotateAngle = leftRotateAngle + 10
-      currentAngle = currentAngle + 10
+      leftRotateAngle = leftRotateAngle - 10
+      currentAngle = currentAngle - 10
 
     }
     const rightButton = document.querySelector('#rightImageButton');
     rightButton.onclick = function(event) {
       // $('.imagePosition img').css('transform', "rotate(-90deg)")
-      let rightRotateAngle = currentAngle -10;
+      let rightRotateAngle = currentAngle + 10;
       img = document.getElementById('rotater')
       img.setAttribute("style", "transform: rotate(" + rightRotateAngle + "deg)")
-      rightRotateAngle = rightRotateAngle - 10
-      currentAngle = currentAngle - 10
+      rightRotateAngle = rightRotateAngle + 10
+      currentAngle = currentAngle + 10
 
     }
 

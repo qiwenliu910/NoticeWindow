@@ -103,6 +103,10 @@ html {
   /*Hides pop-up content when there is no "active" class */
   visibility: hidden;
 }
+.rotater {
+  max-width:20px;
+  max-height:20px;
+}
 .imagePosition {
   color: red;
   /* animation: rotation 2s infinite linear; */
