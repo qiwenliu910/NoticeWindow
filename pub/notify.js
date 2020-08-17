@@ -89,7 +89,7 @@ WindowGenerator.prototype = {
 
   },
   makeRotateImageWindow: function (url, imgSrc) {
-    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultImageWindow.header,'</div></h2><div class = "imagePosition"><a href =" ',url,'" target = "_blank"><img src = "',imgSrc,'"/></a></div><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> </div></div>')
+    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultImageWindow.header,'</div></h2><div class = "imagePosition"><a href =" ',url,'" target = "_blank"><img id="rotater" src = "',imgSrc,'"/></a></div><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> </div></div>')
     $('#RotateImageWindowLocation').html(imageWindow);
     const openButton = document.querySelector('#openRotateImageButton');
     openButton.onclick = function(event) {  
@@ -99,13 +99,27 @@ WindowGenerator.prototype = {
     closeButton.onclick = function(event) {
       $(".rotate-image-popup-overlay, .rotate-image-popup-content").removeClass("active");
     }
+    let currentAngle = 0;
+
     const leftButton = document.querySelector('#leftImageButton');
     leftButton.onclick = function(event) {
-      $('.imagePosition img').css('transform', "rotate(90deg)")
+      let leftRotateAngle = currentAngle + 10;
+      // $('.imagePosition img').css('transform', "rotate(90deg)")
+      img = document.getElementById('rotater')
+      img.setAttribute("style", "transform: rotate(" + leftRotateAngle + "deg)")
+      leftRotateAngle = leftRotateAngle + 10
+      currentAngle = currentAngle + 10
+
     }
     const rightButton = document.querySelector('#rightImageButton');
     rightButton.onclick = function(event) {
-      $('.imagePosition img').css('transform', "rotate(-90deg)")
+      // $('.imagePosition img').css('transform', "rotate(-90deg)")
+      let rightRotateAngle = currentAngle -10;
+      img = document.getElementById('rotater')
+      img.setAttribute("style", "transform: rotate(" + rightRotateAngle + "deg)")
+      rightRotateAngle = rightRotateAngle - 10
+      currentAngle = currentAngle - 10
+
     }
 
   },

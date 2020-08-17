@@ -21,7 +21,7 @@ const newRotateImageWindow = new WindowGenerator()
 newInputWindow.makeInputWindow(inputWindow)
 newNoticeWindow.makeNoticeWindow(noticeWindow)
 newImageWindow.makeImageWindow(imageWindow)
-newRotateImageWindow.makeRotateImageWindow(imageWindow.url, "image/5070-512.png")
+newRotateImageWindow.makeRotateImageWindow(imageWindow.url, "image/download.jpeg")
 
 newNoticeWindow.setNoticeWindowHeader("nihaoma")
 newNoticeWindow.setNoticeWindowContent("wozuijizhi")
