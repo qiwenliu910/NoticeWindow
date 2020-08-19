@@ -24,7 +24,7 @@ WindowGenerator.prototype = {
 	makeNoticeWindow: function(inputObject) {
    
   const noticeWindow = Object.assign(this.defaultNoticeWindow, inputObject)
-    let window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> </div></div>')
+    let window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
     $('#NoticeWindowLocation').html(window);
     const openButton = document.querySelector('#openNoticeButton');
     openButton.onclick = function(event) {  
@@ -42,6 +42,12 @@ WindowGenerator.prototype = {
   },
   setNoticeWindowHeader: function (inputString) {
     $('.noticeWindowHeader').html(inputString);
+  },
+  changeNoticeWindowHeaderColor: function (inputColor) {
+    $(".noticeWindowHeader").css('color', inputColor);;
+  },
+  changeNoticeWindowContentColor: function (inputColor) {
+    $(".noticeWindowContent").css('color', inputColor);;
   },
   setNoticeWindowContent: function (inputString) {
     $('.noticeWindowContent').html(inputString);
@@ -72,6 +78,12 @@ WindowGenerator.prototype = {
   },
   setInputWindowContent: function (inputString) {
     $('.inputWindowContent').html(inputString);
+  },
+  changeInputWindowHeaderColor: function (inputColor) {
+    $(".inputWindowHeader").css('color', inputColor);;
+  },
+  changeInputWindowContentColor: function (inputColor) {
+    $(".inputWindowContent").css('color', inputColor);;
   },
   makeImageWindow: function (inputObject) {
     const ImageWindow = Object.assign(this.defaultImageWindow, inputObject)
@@ -141,10 +153,44 @@ WindowGenerator.prototype = {
     }
 
   },
-	changeWindowsColor: function() {
-		for (let i = 0; i < this.windows.length; i++) {
-			this.windows[i].style.backgroundColor = 'darkmagenta'
-		}
-	}
-
+  makeCAPTCHAwindow: function () {
+    let data;
+    const CAPCHA = '<button id = "openCaptchaButton" onclick="handleClick()" class="open">Open Captcha Window</button><div  class="captcha-popup-overlay"><table id = "CAPCHAtable"><tr><td><h3>Please Click Refresh</h3></td><td><h3>Captcha Window</h3></td><td><button id = "closeCaptchaButton" onclick="handleClick()" class="close">Close</button></td></tr><tr><td>Captcha</td><td><canvas id = "captchaCanvas"></canvas></td><td><button id="getCaptchaButton" type = "button" onclick = "handleClick()">Refresh</button></td></tr><tr><td>Enter Captcha</td><td><input type = "text" size= "30" id = "inputText"></td><td><button id = "checkButton" onclick="handleClick()">Check</button></td></tr></table></div>'
+    $('#CAPTCHAlocation').html(CAPCHA);
+    const openButton = document.querySelector('#openCaptchaButton');
+    openButton.onclick = function(event) {  
+        $(".captcha-popup-overlay").addClass("active");     
+    }
+    const closeButton = document.querySelector('#closeCaptchaButton');
+    closeButton.onclick = function(event) {
+      $(".captcha-popup-overlay").removeClass("active");
+    }
+    const getCaptchaButton = document.querySelector('#getCaptchaButton');
+    getCaptchaButton.onclick = function(event) {  
+      const pen = document.getElementById('captchaCanvas').getContext('2d')
+      let captch = Math.random.toString(36).substring(2, 8)
+      pen.font = "35px Georgia"
+      pen.fillStyle = "grey"
+      pen.fillRect(40, 40, 230, 80)
+      pen.fillStyle = "orange"
+      capPosition1 = Math.floor(Math.random()*captch.length)
+      capPosition2 = Math.floor(Math.random()*captch.length)
+      
+      captch = captch.substring(0, capPosition1 - 1) + captch[capPosition1].toUpperCase()+captch.substring(capPosition1+1, captch.length)
+      captch = captch.substring(0, capPosition2 - 1) + captch[capPosition2].toUpperCase()+captch.substring(capPosition2+1, captch.length)
+      data = captch
+      captch = captch.split('').join('')
+      pen.fillText(captch, 90, 90)
+    }
+    const checkButton = document.querySelector('#checkButton')
+    checkButton.onclick = function () {
+      const inputText = document.getElementById('inputText').value
+      if(inputText === data) {
+        alert("Correct!")
+      }
+      else {
+        alert("Incorrect")
+      }
+    }
+  },
 }

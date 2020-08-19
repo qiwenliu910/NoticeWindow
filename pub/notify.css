@@ -1,25 +1,68 @@
 html {
   font-family: "Helvetica Neue", sans-serif;
   width: 100%;
-  color: #a09191;
+  color: black;
   text-align: center;
 }
+#title {
+  font-size:36px!important;
+  color:grey!important;
+  letter-spacing:4px;
+}
+#CAPTCHAtable {
+  border:2px solid black;
+}
 
-.notice-popup-overlay {
+.captcha-popup-overlay {
   /*Hides pop-up when there is no "active" class*/
   visibility: hidden;
   position: absolute;
+  background-color: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  width: 50%;
+  max-height: 75%;
+  left:20%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.captcha-popup-overlay.active {
+  /*displays pop-up when "active" class is present*/
+  visibility: visible;
+  animation: fadeIn 0.1s ease-in-out forwards;
+}
+.notice-popup-overlay {
+  /*Hides pop-up when there is no "active" class*/
+  visibility: hidden;
+  /* position: absolute;
   background: #ffffff;
   border: 2px solid #020202;
   width: 50%;
   height: 50%;
-  left: 25%;
+  left: 25%; */
+  position: absolute;
+  background-color: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  width: 50%;
+  max-height: 75%;
+  left:20%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
-
+.noticeWindowHeader {
+  color:black
+}
+.noticeWindowContent {
+  color: grey
+}
 .notice-popup-overlay.active {
   /*displays pop-up when "active" class is present*/
   visibility: visible;
-  text-align: center;
+  text-align: left;
+  animation: fadeIn 0.1s ease-in-out forwards;
 }
 
 .notice-popup-content {
@@ -32,20 +75,25 @@ html {
   visibility: visible;
 }
 .input-popup-overlay {
-  /*Hides pop-up when there is no "active" class*/
-  visibility: hidden;
-  position: absolute;
-  background: #ffffff;
-  border: 2px solid #020202;
-  width: 50%;
-  height: 50%;
-  left: 25%;
+   /*Hides pop-up when there is no "active" class*/
+   visibility: hidden;
+   position: absolute;
+   background-color: #fff;
+   margin: 2rem;
+   padding: 2rem;
+   border-radius: 0.25rem;
+   width: 50%;
+   max-height: 75%;
+   left:20%;
+   overflow: auto;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .input-popup-overlay.active {
   /*displays pop-up when "active" class is present*/
   visibility: visible;
   text-align: center;
+  animation: fadeIn 0.1s ease-in-out forwards;
 }
 
 .input-popup-content {
@@ -58,20 +106,25 @@ html {
   visibility: visible;
 }
 .image-popup-overlay {
-  /*Hides pop-up when there is no "active" class*/
-  visibility: hidden;
-  position: absolute;
-  background: #ffffff;
-  border: 2px solid  #ffffff;
-  width: 50%;
-  height: 50%;
-  left: 25%;
+   /*Hides pop-up when there is no "active" class*/
+   visibility: hidden;
+   position: absolute;
+   background-color: #fff;
+   margin: 2rem;
+   padding: 2rem;
+   border-radius: 0.25rem;
+   width: 50%;
+   max-height: 75%;
+   left:20%;
+   overflow: auto;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .image-popup-overlay.active {
   /*displays pop-up when "active" class is present*/
   visibility: visible;
   text-align: center;
+  animation: fadeIn 0.1s ease-in-out forwards;
 }
 .image-popup-content {
   /*Hides pop-up content when there is no "active" class */
@@ -85,19 +138,24 @@ html {
 }
 .rotate-image-popup-overlay {
   /*Hides pop-up when there is no "active" class*/
-  visibility: hidden;
-  position: absolute;
-  background: #ffffff;
-  border: 2px solid  #ffffff;
-  width: 50%;
-  height: 50%;
-  left: 25%;
+   visibility: hidden;
+   position: absolute;
+   background-color: #fff;
+   margin: 2rem;
+   padding: 2rem;
+   border-radius: 0.25rem;
+   width: 50%;
+   max-height: 75%;
+   left:20%;
+   overflow: auto;
+   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .rotate-image-popup-overlay.active {
   /*displays pop-up when "active" class is present*/
   visibility: visible;
   text-align: center;
+  animation: fadeIn 0.1s ease-in-out forwards;
 }
 .rotate-image-popup-content {
   /*Hides pop-up content when there is no "active" class */
@@ -119,6 +177,16 @@ html {
     transform: rotate(359deg);
   }
 } */
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .image-popup-content.active {
   /*Shows pop-up content when "active" class is present */
   visibility: visible;
