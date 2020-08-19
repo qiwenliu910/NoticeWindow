@@ -143,10 +143,16 @@ WindowGenerator.prototype = {
 
   },
   makeRotateImageWindow: function (url, imgSrc) {
+    let currentAngle;
     const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> <br> <button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button></div></div>')
     $('#RotateImageWindowLocation').html(imageWindow);
     const openButton = document.querySelector('#openRotateImageButton');
     openButton.onclick = function(event) {  
+      const min = Math.ceil(1);
+      const max = Math.floor(9);
+      currentAngle = (Math.floor(Math.random() * (max - min + 1)) + min) * 10;
+      img = document.getElementById('rotater')
+      img.setAttribute("style", "transform: rotate(" + currentAngle + "deg)")
         $(".rotate-image-popup-overlay, .rotate-image-popup-content").addClass("active");     
     }
     const submitButton = document.querySelector("#submitImageButton")
@@ -163,11 +169,6 @@ WindowGenerator.prototype = {
     closeButton.onclick = function(event) {
       $(".rotate-image-popup-overlay, .rotate-image-popup-content").removeClass("active");
     }
-    const min = Math.ceil(1);
-    const max = Math.floor(9);
-    let currentAngle = (Math.floor(Math.random() * (max - min + 1)) + min) * 10;
-    img = document.getElementById('rotater')
-    img.setAttribute("style", "transform: rotate(" + currentAngle + "deg)")
 
     const leftButton = document.querySelector('#leftImageButton');
     leftButton.onclick = function(event) {
