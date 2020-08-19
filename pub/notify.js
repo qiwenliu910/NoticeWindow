@@ -29,17 +29,21 @@ WindowGenerator.prototype = {
   makeAgreeWindow: function(inputObject) {
    
     const agreeWindow = Object.assign(this.defaultAgreeWindow, inputObject)
-      let window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "closeAgreeButton" onclick="handleClick()" class="close">I Agree</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+      let window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
       $('#AgreeWindowLocation').html(window);
       const openButton = document.querySelector('#openAgreeButton');
       openButton.onclick = function(event) {  
           $(".agree-popup-overlay, .agree-popup-content").addClass("active"); 
       }
-      const closeButton = document.querySelector('#closeAgreeButton');
-      closeButton.onclick = function(event) {
+      const agreeButton = document.querySelector('#AgreeButton');
+      agreeButton.onclick = function(event) {
         if (agreeWindow.url !== null) {
           location.href = agreeWindow.url;
         }
+        $(".agree-popup-overlay, .agree-popup-content").removeClass("active");
+      }
+      const disagreeButton = document.querySelector('#DisagreeButton');
+      disagreeButton.onclick = function(event) {
         $(".agree-popup-overlay, .agree-popup-content").removeClass("active");
       }
     },
