@@ -243,4 +243,12 @@ button {
   color: #030303;
   background: #ffffff;
   border: 1px solid #030303;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+}
+.open:hover {
+  background: #EAE9E9;
+}
+.close:hover {
+  background: #EAE9E9;
 }
