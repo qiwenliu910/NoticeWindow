@@ -192,6 +192,48 @@ html {
   visibility: visible;
   display:inline-block;
 }
+.agree-popup-overlay {
+  /*Hides pop-up when there is no "active" class*/
+  visibility: hidden;
+  /* position: absolute;
+  background: #ffffff;
+  border: 2px solid #020202;
+  width: 50%;
+  height: 50%;
+  left: 25%; */
+  position: absolute;
+  background-color: #fff;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  width: 50%;
+  max-height: 75%;
+  left:20%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.agreeWindowHeader {
+  color:black
+}
+.agreeWindowContent {
+  color: grey
+}
+.agree-popup-overlay.active {
+  /*displays pop-up when "active" class is present*/
+  visibility: visible;
+  text-align: left;
+  animation: fadeIn 0.1s ease-in-out forwards;
+}
+
+.agree-popup-content {
+  /*Hides pop-up content when there is no "active" class */
+  visibility: hidden;
+}
+
+.agree-popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility: visible;
+}
 button {
   display: inline-block;
   vertical-align: middle;
