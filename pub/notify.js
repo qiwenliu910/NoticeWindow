@@ -47,6 +47,18 @@ WindowGenerator.prototype = {
         $(".agree-popup-overlay, .agree-popup-content").removeClass("active");
       }
     },
+    setAgreeWindowHeader: function (inputString) {
+      $('.agreeWindowHeader').html(inputString);
+    },
+    changeAgreeWindowHeaderColor: function (inputColor) {
+      $(".agreeWindowHeader").css('color', inputColor);;
+    },
+    changeAgreeWindowContentColor: function (inputColor) {
+      $(".agreeWindowContent").css('color', inputColor);;
+    },
+    setAgreeWindowContent: function (inputString) {
+      $('.agreeWindowContent').html(inputString);
+    },
 	makeNoticeWindow: function(inputObject) {
    
   const noticeWindow = Object.assign(this.defaultNoticeWindow, inputObject)
