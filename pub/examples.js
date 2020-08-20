@@ -11,8 +11,8 @@ const agreeWindow = {
 }
 const inputWindow = {
     time:null,
-    header: "this is input header",
-    content: "this is input content"
+    header: "Please enter the information below",
+    content: ""
 }
 const imageWindow = {
     time:4000,
@@ -30,14 +30,14 @@ newInputWindow.makeInputWindow(inputWindow)
 newNoticeWindow.makeNoticeWindow(noticeWindow)
 newImageWindow.makeImageWindow(imageWindow)
 newRotateImageWindow.makeRotateImageWindow(imageWindow.url, "image/download.jpeg")
-newCAPTCHA.makeCAPTCHAwindow()
+newCAPTCHA.makeCAPTCHAwindow(5)
 newAgreeWindow.makeAgreeWindow(agreeWindow)
 // newNoticeWindow.setNoticeWindowHeader("nihaoma")
 // newNoticeWindow.setNoticeWindowContent("wozuijizhi")
 
-newInputWindow.setInputWindowHeader("wohenhao")
-newInputWindow.setInputWindowContent("wozuikeai")
+// newInputWindow.setInputWindowHeader("wohenhao")
+// newInputWindow.setInputWindowContent("wozuikeai")
 
-newNoticeWindow.changeNoticeWindowHeaderColor('red')
-newInputWindow.changeInputWindowContentColor("blue")
-newInputWindow.changeInputWindowHeaderColor("green")
+// newNoticeWindow.changeNoticeWindowHeaderColor('red')
+// newInputWindow.changeInputWindowContentColor("blue")
+// newInputWindow.changeInputWindowHeaderColor("green")

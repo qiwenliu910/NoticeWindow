@@ -101,7 +101,7 @@ WindowGenerator.prototype = {
    
   const inputWindow = Object.assign(this.defaultInputWindow, inputObject)
    
-    let window = '<button id = "openInputButton" onclick="handleClick()" class="open">Open Input Window</button><div class="input-popup-overlay"><div class="input-popup-content"><h2>'.concat('<div class="inputWindowHeader">',inputWindow.header,'</div></h2><p><div class="inputWindowContent">',inputWindow.content,'.</div></p><form><label for="fname">First name:</label><br><input type="text" id="fname" name="fname" value=""><br><label for="lname">Last name:</label><br><input type="text" id="lname" name="lname" value=""><br><br><input type="submit" value="Submit"></form><br><button id = "closeInputButton" onclick="handleClick()" class="close">Close</button> </div></div>')
+    let window = '<button id = "openInputButton" onclick="handleClick()" class="open">Open Input Window</button><div class="input-popup-overlay"><div class="input-popup-content"><h2>'.concat('<div class="inputWindowHeader">',inputWindow.header,'</div></h2><p><div class="inputWindowContent">',inputWindow.content,'</div></p><form><label for="fname">First name:</label><br><input type="text" id="fname" name="fname" value=""><br><label for="lname">Last name:</label><br><input type="text" id="lname" name="lname" value=""><br><br><input type="submit" value="Submit"></form><br><button id = "closeInputButton" onclick="handleClick()" class="close">Close</button> </div></div>')
     $('#InputWindowLocation').html(window);
     const openButton = document.querySelector('#openInputButton');
     openButton.onclick = function(event) {  
@@ -199,7 +199,7 @@ WindowGenerator.prototype = {
     }
 
   },
-  makeCAPTCHAwindow: function () {
+  makeCAPTCHAwindow: function (inputLength) {
     let data;
     const CAPCHA = '<button id = "openCaptchaButton" onclick="handleClick()" class="open">Open Captcha Window</button><div  class="captcha-popup-overlay"><table id = "CAPCHAtable"><tr><td><h3>Please Click Refresh</h3></td><td><h3>Captcha Window</h3></td><td><button id = "closeCaptchaButton" onclick="handleClick()" class="close">Close</button></td></tr><tr><td>Captcha</td><td><canvas id = "captchaCanvas"></canvas></td><td><button id="getCaptchaButton" type = "button" onclick = "handleClick()">Refresh</button></td></tr><tr><td>Enter Captcha</td><td><input type = "text" size= "30" id = "inputText"></td><td><button id = "checkButton" onclick="handleClick()">Check</button></td></tr></table></div>'
     $('#CAPTCHAlocation').html(CAPCHA);
@@ -214,19 +214,19 @@ WindowGenerator.prototype = {
     const getCaptchaButton = document.querySelector('#getCaptchaButton');
     getCaptchaButton.onclick = function(event) {  
       const pen = document.getElementById('captchaCanvas').getContext('2d')
-      let captch = Math.random.toString(36).substring(2, 8)
+      
       pen.font = "35px Georgia"
       pen.fillStyle = "grey"
       pen.fillRect(40, 40, 230, 80)
       pen.fillStyle = "orange"
-      capPosition1 = Math.floor(Math.random()*captch.length)
-      capPosition2 = Math.floor(Math.random()*captch.length)
       
-      captch = captch.substring(0, capPosition1 - 1) + captch[capPosition1].toUpperCase()+captch.substring(capPosition1+1, captch.length)
-      captch = captch.substring(0, capPosition2 - 1) + captch[capPosition2].toUpperCase()+captch.substring(capPosition2+1, captch.length)
-      data = captch
-      captch = captch.split('').join('')
-      pen.fillText(captch, 90, 90)
+      let result
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      for (let i = 0; i < inputLength; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      data = result.slice(9, 9+inputLength)
+      pen.fillText(result.slice(9, 9+inputLength), 90, 90)
     }
     const checkButton = document.querySelector('#checkButton')
     checkButton.onclick = function () {
