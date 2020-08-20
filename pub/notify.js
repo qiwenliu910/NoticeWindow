@@ -1,5 +1,6 @@
 function WindowGenerator() {
   this.defaultNoticeWindow = {
+    imgSrc:null,
     time: null,
     header: "this is the notice header",
     content: "this is the notice content"
@@ -62,7 +63,13 @@ WindowGenerator.prototype = {
 	makeNoticeWindow: function(inputObject) {
    
   const noticeWindow = Object.assign(this.defaultNoticeWindow, inputObject)
-    let window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+  let window;
+  if(noticeWindow.imgSrc !== null) {
+    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+  }
+  else {
+    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')  
+  }
     $('#NoticeWindowLocation').html(window);
     const openButton = document.querySelector('#openNoticeButton');
     openButton.onclick = function(event) {  
@@ -144,7 +151,7 @@ WindowGenerator.prototype = {
   },
   makeRotateImageWindow: function (url, imgSrc) {
     let currentAngle;
-    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button> <br> <button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close</button></div></div>')
+    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button><br><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close </button></div></div>')
     $('#RotateImageWindowLocation').html(imageWindow);
     const openButton = document.querySelector('#openRotateImageButton');
     openButton.onclick = function(event) {  
