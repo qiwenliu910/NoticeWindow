@@ -63,12 +63,23 @@ newPreview.makePreviewWindow("https://fas.calendar.utoronto.ca/section/Computer-
 // newRotateImageWindow.makeRotateImageWindow(imageWindow.url, "image/download.jpeg")
 // newCAPTCHA.makeCAPTCHAwindow(8)
 // newAgreeWindow.makeAgreeWindow(agreeWindow)
-// newNoticeWindow.setNoticeWindowHeader("nihaoma")
-// newNoticeWindow.setNoticeWindowContent("wozuijizhi")
 
 // newInputWindow.setInputWindowHeader("wohenhao")
 // newInputWindow.setInputWindowContent("wozuikeai")
 
+// newNoticeWindow.setNoticeWindowHeader("nihaoma")
+// newNoticeWindow.setNoticeWindowContent("wozuijizhi")
 // newNoticeWindow.changeNoticeWindowHeaderColor('red')
+// newNoticeWindow.changeNoticeWindowContentColor('purple')
+
+
+// newInputWindow.setInputWindowHeader("wohenhao")
+// newInputWindow.setInputWindowContent("wozuikeai")
 // newInputWindow.changeInputWindowContentColor("blue")
 // newInputWindow.changeInputWindowHeaderColor("green")
+
+
+// newAgreeWindow.setAgreeWindowHeader("wohenhao")
+// newAgreeWindow.setAgreeWindowContent("wozuikeai")
+// newAgreeWindow.changeAgreeWindowHeaderColor('red')
+// newAgreeWindow.changeAgreeWindowContentColor('purple')

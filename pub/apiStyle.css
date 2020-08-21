@@ -1,0 +1,41 @@
+table, th, td {
+    border: 1px solid black;
+    font-size: large;
+  font-weight: 450;
+  }
+  
+hr {
+  border: 1px solid black;
+}
+.box{
+  display: none;
+  width: 100%;
+}
+
+a:hover + .box,.box:hover{
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+p {
+  font-family: "Helvetica Neue", sans-serif;
+  width: 100%;
+  color: black;
+  font-size: large;
+  font-weight: 430;
+}
+.subtext {
+  font-family: "Helvetica Neue", sans-serif;
+  width: 100%;
+  color: black;
+  font-size: large;
+  font-weight: 430;
+}
+
+.subsection {
+  font-family: "Helvetica Neue", sans-serif;
+  width: 100%;
+  color: black;
+  /* font-size: large; */
+  font-weight: 900;
+}

@@ -1,0 +1,493 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Library Example</title>
+    <link rel="stylesheet" type="text/css" href="apiStyle.css".css">
+  <body background="./image/background.jpg">
+    <h1 class="title"> Getting started </h1>
+    <hr>
+    <!-- <h2 class="title"> Getting started </h2> -->
+    <p>To use this libary, include notify.css, notify.js, and JQuery. The picture below shows what you need to include in your index.html, and the examples.js should be where you call the window generate functions </p>
+    <div><img src="./image/html.jpg" alt="Simply Easy Learning" width="700"
+        height="180"></div>
+    <p>Next, follow the examples below to insert the corresponding div element of the window in its display location in the index.html</p>
+    <div><img src="./image/div.jpg" alt="Simply Easy Learning" width="500"
+        height="180"></div>
+    <p>Finally, follow the examples below to call the corresponding window generated function in the js file to create the window</p>
+    <div><img src="./image/test.jpg" alt="Simply Easy Learning" width="700"
+        height="900"></div>
+    <hr>
+    <h1 class="title"> API </h1>
+    <hr>
+    <div class="functions">
+      <h2> makeNoticeWindow(inputObject) </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates a notice window with header, content, close button, image(optional), timer(optional), and inserts the resulting html to the corresponding notice window div.</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+      <table class="argsTable" border: 1px solid black >
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+        <tr align= "left">
+          <th>header</th>
+          <th>String</th>
+          <th>The header of the notice window</th>
+        </tr>
+        <tr align= "left">
+          <th>content</th>
+          <th>String</th>
+          <th>The content of the notice window</th>
+        </tr>
+        <tr align= "left">
+          <th>time</th>
+          <th>Integer / null</th>
+          <th>The timer of the window in millisecond, put null to dicard timer</th>
+        </tr>
+        <tr align= "left">
+          <th>imgSrc</th>
+          <th>url</th>
+          <th>The image to put on the window, put null to discard image</th>
+        </tr>
+        <tr align= "left">
+            <th>open</th>
+            <th>bool</th>
+            <th>true for displaying the window when the website is loaded, false for a extra open button to display the window</th>
+          </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    <div class="functions">
+        <h2>setNoticeWindowHeader(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header of a existing Notice window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>header</th>
+            <th>String</th>
+            <th>The header of the Notice window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>setNoticeWindowContent(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content of a existing Notice window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>content</th>
+            <th>String</th>
+            <th>The content of the Notice window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeNoticeWindowHeaderColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header color of a existing Notice window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the header of the Notice window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeNoticeWindowContentColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content color of a existing Notice window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the content of the Notice window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+    <div class="functions">
+      <h2> makeAgreeWindow(inputObject) </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates an agree window with header, content, agree button that goes to other links, disagree button to stay on the page, and inserts the resulting html to the corresponding agree window div.</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+      <table class="argsTable">
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+        <tr align= "left">
+          <th>header</th>
+          <th>String</th>
+          <th>The header of the agree window</th>
+        </tr>
+        <tr align= "left">
+          <th>content</th>
+          <th>String</th>
+          <th>The content of the agree window</th>
+        </tr>
+        <tr align= "left">
+          <th>url</th>
+          <th>url</th>
+          <th>The link goes to upon clicking the agree button</th>
+        </tr>
+        <tr align= "left">
+            <th>open</th>
+            <th>bool</th>
+            <th>true for displaying the window when the website is loaded, false for a extra open button to display the window</th>
+          </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    <div class="functions">
+        <h2>setAgreeWindowHeader(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header of a existing agree window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>header</th>
+            <th>String</th>
+            <th>The header of the agree window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>setAgreeWindowContent(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content of a existing agree window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>content</th>
+            <th>String</th>
+            <th>The content of the agree window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeAgreeWindowHeaderColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header color of a existing agree window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the header of the agree window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeAgreeWindowContentColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content color of a existing agree window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the content of the agree window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+    <div class="functions">
+      <h2> makeInputWindow(inputObject)  </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates a input window with header, content, first name and last name input fills, submit button, close button, timer(optional), and inserts the resulting html to the corresponding input window div</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+      <table class="argsTable">
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Restrictions/Details</th>
+        </tr>
+        <tr align= "left">
+          <th>header</th>
+          <th>String</th>
+          <th>The header of the input window</th>
+        </tr>
+        <tr align= "left">
+          <th>content</th>
+          <th>String</th>
+          <th>The content of the input window</th>
+        </tr>
+        <tr align= "left">
+          <th>time</th>
+          <th>Integer / null</th>
+          <th>The timer of the window in millisecond, put null to dicard timer</th>
+        </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    <div class="functions">
+        <h2>setInputWindowHeader(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header of a existing Input window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>header</th>
+            <th>String</th>
+            <th>The header of the Input window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>setInputWindowContent(inputString) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content of a existing Input window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>content</th>
+            <th>String</th>
+            <th>The content of the Input window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeInputWindowHeaderColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the header color of a existing Input window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the header of the Input window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+      <div class="functions">
+        <h2>changeInputWindowContentColor(inputColor) </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function resets the content color of a existing Input window</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>color</th>
+            <th>String</th>
+            <th>The color of the the content of the Input window</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+    <div class="functions">
+      <h2>  makeImageWindow(inputObject)  </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates an image window with header, imgSrc, url upon clicking the image, timer(optional), and inserts the resulting html to the corresponding image window div</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+      <table class="argsTable">
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+        <tr align= "left">
+          <th>header</th>
+          <th>String</th>
+          <th>The header of the image window</th>
+        </tr>
+        <tr align= "left">
+          <th>time</th>
+          <th>Integer / null</th>
+          <th>The timer of the window in millisecond, put null to dicard timer</th>
+        </tr>
+        <tr align= "left">
+          <th>imgSrc</th>
+          <th>url</th>
+          <th>The image to put on the window</th>
+        </tr>
+        <tr align= "left">
+          <th>url</th>
+          <th>url</th>
+          <th>The link goes to upon clicking the image</th>
+        </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    <div class="functions">
+      <h2>  makeRotateImageWindow(inputObject)  </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates a rotatable image window with header, imgSrc, left button, right button, submit button, url to goes to after rotating the image to the upright position, and inserts the resulting html to the corresponding rotate image window div</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+      <table class="argsTable">
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+        <tr align= "left">
+          <th>imgSrc</th>
+          <th>url</th>
+          <th>The image to put on the window</th>
+        </tr>
+        <tr align= "left">
+          <th>url</th>
+          <th>url</th>
+          <th>The link goes to upon successful rotating the image</th>
+        </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    <div class="functions">
+        <h2>  makePreviewWindow(inputObject)  </h2>
+        <h3 class="subsection"> Description:</h3>
+        <h3 class="subtext"> This function creates a popup window that preview the inputed link when clicking the open button</h3>
+        <h3 class="subsection"> Arguments:</h3>
+        <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+        <table class="argsTable">
+          <tbody><tr align= "left">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Details</th>
+          </tr>
+          <tr align= "left">
+            <th>url</th>
+            <th>url</th>
+            <th>The link loaded when clicking the open button</th>
+          </tr>
+        </tbody></table>
+        <br>
+      </div>
+      <hr>
+    <div class="functions">
+      <h2>  makeCAPTCHAwindow()  </h2>
+      <h3 class="subsection"> Description:</h3>
+      <h3 class="subtext"> This function creates a captcha window with refresh button to display the captcha, close button, check button to check the user input, and inserts the resulting html to the corresponding rotate image window div</h3>
+      <h3 class="subsection"> Arguments:</h3>
+      <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
+      <table class="argsTable">
+        <tbody><tr align= "left">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Details</th>
+        </tr>
+        <tr align= "left">
+            <th>url</th>
+            <th>url</th>
+            <th>The link goes to upon successful entering the value</th>
+          </tr>
+        <tr align= "left">
+          <th>input Length</th>
+          <th>Integer</th>
+          <th>The length of the captcha, between 1 and 8 inclusive</th>
+        </tr>
+      </tbody></table>
+      <br>
+    </div>
+    <hr>
+    
+  
+  
+  </body></html>
