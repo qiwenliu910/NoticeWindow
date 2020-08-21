@@ -195,9 +195,9 @@ WindowGenerator.prototype = {
     }
 
   },
-  makeRotateImageWindow: function (url, imgSrc) {
+  makeRotateImageWindow: function (inputObject) {
     let currentAngle;
-    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button><br><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close </button></div></div>')
+    const imageWindow = '<button id = "openRotateImageButton" onclick="handleClick()" class="open">Open Rotate Image Window</button><div class="rotate-image-popup-overlay"><div class="rotate-image-popup-content"><h2>'.concat('<div class="RotateImageWindowHeader">',this.defaultRotateImageWindow.header,'</div></h2><p><div class=" RotateImageWindowContent"></div></p><br><br><div class = "imagePosition"><img id="rotater" src = "',inputObject.imgSrc,'"/></div><br><br><button id = "leftImageButton" onclick="handleClick()" class="left">left</button><button id = "submitImageButton" onclick="handleClick()" class="submit">submit</button><button id = "rightImageButton" onclick="handleClick()" class="right">right</button><br><button id = "closeRotateImageButton" onclick="handleClick()" class="close">Close </button></div></div>')
     $('#RotateImageWindowLocation').html(imageWindow);
     const openButton = document.querySelector('#openRotateImageButton');
     openButton.onclick = function(event) {  
@@ -212,7 +212,7 @@ WindowGenerator.prototype = {
     submitButton.onclick = function() {
       if (currentAngle === 0) {
        console.log("true")
-        window.location=url;
+        window.location=inputObject.url;
       }
       else {
        
@@ -245,7 +245,7 @@ WindowGenerator.prototype = {
     }
 
   },
-  makeCAPTCHAwindow: function (inputLength) {
+  makeCAPTCHAwindow: function (inputObject) {
     let data;
     const CAPCHA = '<button id = "openCaptchaButton" onclick="handleClick()" class="open">Open Captcha Window</button><div  class="captcha-popup-overlay"><table id = "CAPCHAtable"><tr><td><h3>Please Click Refresh</h3></td><td><h3>Captcha Window</h3></td><td><button id = "closeCaptchaButton" onclick="handleClick()" class="close">Close</button></td></tr><tr><td>Captcha</td><td><canvas id = "captchaCanvas"></canvas></td><td><button id="getCaptchaButton" type = "button" onclick = "handleClick()">Refresh</button></td></tr><tr><td>Enter Captcha</td><td><input type = "text" size= "30" id = "inputText"></td><td><button id = "checkButton" onclick="handleClick()">Check</button></td></tr></table></div>'
     $('#CAPTCHAlocation').html(CAPCHA);
@@ -268,17 +268,18 @@ WindowGenerator.prototype = {
       
       let result
       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      for (let i = 0; i < inputLength; i++) {
+      for (let i = 0; i < inputObject.length; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
       }
-      data = result.slice(9, 9+inputLength)
-      pen.fillText(result.slice(9, 9+inputLength), 90, 90)
+      data = result.slice(9, 9+inputObject.length)
+      pen.fillText(result.slice(9, 9+inputObject.length), 90, 90)
     }
     const checkButton = document.querySelector('#checkButton')
     checkButton.onclick = function () {
       const inputText = document.getElementById('inputText').value
       if(inputText === data) {
         alert("Correct!")
+        window.location=inputObject.url;
       }
       else {
         alert("Incorrect")
