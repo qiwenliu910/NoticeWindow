@@ -220,11 +220,10 @@ WindowGenerator.prototype = {
     const submitButton = document.querySelector("#submitImageButton")
     submitButton.onclick = function() {
       if (currentAngle === 0) {
-       console.log("true")
         window.location=inputObject.url;
       }
       else {
-       
+        alert("Incorrect!")
       }
     }
     const closeButton = document.querySelector('#closeRotateImageButton');
@@ -287,7 +286,7 @@ WindowGenerator.prototype = {
     checkButton.onclick = function () {
       const inputText = document.getElementById('inputText').value
       if(inputText === data) {
-        alert("Correct!")
+        // alert("Correct!")
         window.location=inputObject.url;
       }
       else {
