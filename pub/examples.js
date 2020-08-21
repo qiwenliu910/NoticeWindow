@@ -42,7 +42,7 @@ newRotateImageWindow.makeRotateImageWindow(rotateImageWindow)
 
 const captchaWindow = {
     url: "https://fas.calendar.utoronto.ca/section/Computer-Science",
-    length: 8
+    length: 5
 }
 const newCAPTCHA = new WindowGenerator()
 newCAPTCHA.makeCAPTCHAwindow(captchaWindow)
