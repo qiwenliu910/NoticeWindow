@@ -10,7 +10,7 @@ There are four sections in the landing page.
 | API      | details instructions on how to use the library and all functions / methods  |
 | Download | link to the git repo                                                        |
 
-Landing Page Site: https://stark-harbor-31776.herokuapp.com/
+Landing Page Site: https://quiet-harbor-11984.herokuapp.com
 
 ## Getting started
 This section explains how to use the library
@@ -96,17 +96,24 @@ newCAPTCHA.makeCAPTCHAwindow(captchaWindow)
 const newPreview = new WindowGenerator()
 newPreview.makePreviewWindow("https://fas.calendar.utoronto.ca/section/Computer-Science")
 
-// newNoticeWindow.setNoticeWindowHeader("changedNoticeHeader")
-// newNoticeWindow.setNoticeWindowContent("changedNoticeContent")
-
-// newInputWindow.setInputWindowHeader("changedInputHeader")
-// newInputWindow.setInputWindowContent("changedInputContent")
-
+// newNoticeWindow.setNoticeWindowHeader("nihaoma")
+// newNoticeWindow.setNoticeWindowContent("wozuijizhi")
 // newNoticeWindow.changeNoticeWindowHeaderColor('red')
+// newNoticeWindow.changeNoticeWindowContentColor('purple')
+
+
+// newInputWindow.setInputWindowHeader("changedHeader")
+// newInputWindow.setInputWindowContent("changedContent")
 // newInputWindow.changeInputWindowContentColor("blue")
 // newInputWindow.changeInputWindowHeaderColor("green")
+
+
+// newAgreeWindow.setAgreeWindowHeader("changedHeader")
+// newAgreeWindow.setAgreeWindowContent("changedContent")
+// newAgreeWindow.changeAgreeWindowHeaderColor('red')
+// newAgreeWindow.changeAgreeWindowContentColor('purple')
 ```
 
 ### Direct Link to the Documentation
 
-Landing Page Documentation: https://stark-harbor-31776.herokuapp.com/api.html
+Landing Page Documentation: https://quiet-harbor-11984.herokuapp.com/api.html
