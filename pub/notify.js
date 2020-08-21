@@ -3,12 +3,14 @@ function WindowGenerator() {
     imgSrc:null,
     time: null,
     header: "this is the notice header",
-    content: "this is the notice content"
+    content: "this is the notice content",
+    open: false
   } 
   this.defaultAgreeWindow = {
     header: "this is the notice header",
     content: "this is the notice content",
-    url: null
+    url: null,
+    open: false
   } 
   this.defaultInputWindow = {
     time:null,
@@ -30,11 +32,28 @@ WindowGenerator.prototype = {
   makeAgreeWindow: function(inputObject) {
    
     const agreeWindow = Object.assign(this.defaultAgreeWindow, inputObject)
-      let window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+      // let window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+      // $('#AgreeWindowLocation').html(window);
+      // const openButton = document.querySelector('#openAgreeButton');
+      // openButton.onclick = function(event) {  
+      //     $(".agree-popup-overlay, .agree-popup-content").addClass("active"); 
+      // }
+      let window;
+      if (agreeWindow.open) {
+        window = '<div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+      }
+      else {
+        window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+      }
       $('#AgreeWindowLocation').html(window);
-      const openButton = document.querySelector('#openAgreeButton');
-      openButton.onclick = function(event) {  
-          $(".agree-popup-overlay, .agree-popup-content").addClass("active"); 
+      if (agreeWindow.open) {
+        $(".agree-popup-overlay, .agree-popup-content").addClass("active"); 
+      }
+      else if (!agreeWindow.open) {
+        const openButton = document.querySelector('#openAgreeButton');
+        openButton.onclick = function(event) {  
+            $(".agree-popup-overlay, .agree-popup-content").addClass("active"); 
+        }
       }
       const agreeButton = document.querySelector('#AgreeButton');
       agreeButton.onclick = function(event) {
@@ -64,14 +83,23 @@ WindowGenerator.prototype = {
    
   const noticeWindow = Object.assign(this.defaultNoticeWindow, inputObject)
   let window;
-  if(noticeWindow.imgSrc !== null) {
+  if(noticeWindow.imgSrc !== null && !noticeWindow.open) {
     window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
   }
-  else {
+  else if (noticeWindow.imgSrc === null && !noticeWindow.open) {
     window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')  
   }
+  else if (noticeWindow.imgSrc !== null && noticeWindow.open) {
+    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+  
+  }
+  else if (noticeWindow.imgSrc === null && noticeWindow.open) {
+    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')  
+  
+  }
     $('#NoticeWindowLocation').html(window);
-    const openButton = document.querySelector('#openNoticeButton');
+    if (!noticeWindow.open) {
+      const openButton = document.querySelector('#openNoticeButton');
     openButton.onclick = function(event) {  
         $(".notice-popup-overlay, .notice-popup-content").addClass("active"); 
         if (noticeWindow.time !== null) {
@@ -79,7 +107,25 @@ WindowGenerator.prototype = {
             $(".notice-popup-overlay, .notice-popup-content").removeClass("active");
            }, noticeWindow.time);   
         }
+      }
     }
+    else if (noticeWindow.open) {
+      $(".notice-popup-overlay, .notice-popup-content").addClass("active"); 
+      if (noticeWindow.time !== null) {
+        setTimeout(function(){
+          $(".notice-popup-overlay, .notice-popup-content").removeClass("active");
+         }, noticeWindow.time);   
+      }
+    }
+    // const openButton = document.querySelector('#openNoticeButton');
+    // openButton.onclick = function(event) {  
+    //     $(".notice-popup-overlay, .notice-popup-content").addClass("active"); 
+    //     if (noticeWindow.time !== null) {
+    //       setTimeout(function(){
+    //         $(".notice-popup-overlay, .notice-popup-content").removeClass("active");
+    //        }, noticeWindow.time);   
+    //     }
+    // }
     const closeButton = document.querySelector('#closeNoticeButton');
     closeButton.onclick = function(event) {
       $(".notice-popup-overlay, .notice-popup-content").removeClass("active");
