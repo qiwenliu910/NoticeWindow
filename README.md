@@ -18,7 +18,7 @@ This section explains how to use the library
 ### files to include
 To use this libary, include notify.css, notify.js, and JQuery. The picture below shows what you need to include in your index.html, and the examples.js should be where you call the window generate functions.
 
-```
+``` html
   <link href="notify.css" type="text/css" rel="stylesheet">
   <script src="notify.js" type="text/javascript"></script>
   <script defer src="examples.js" type="text/javascript"></script>
@@ -29,7 +29,7 @@ To use this libary, include notify.css, notify.js, and JQuery. The picture below
 ### Div to put in html
 Next, follow the examples below to insert the corresponding div element of the window in its display location in the index.html
 
-```
+``` html
   <div id = "NoticeWindowLocation"></div>
   <div id = "InputWindowLocation"></div>
   <div id = "ImageWindowLocation"></div>
@@ -43,7 +43,7 @@ Next, follow the examples below to insert the corresponding div element of the w
 ### Obejcts and functions to create windows
 Finally, follow the examples below to call the corresponding window generated function in the js file to create the window
 
-```
+``` js
 const noticeWindow = {
     open: false,
     imgSrc:null,
