@@ -28,7 +28,14 @@ function WindowGenerator() {
 }
 
 WindowGenerator.prototype = {
-
+  makePreviewWindow: function (inputObject){
+    const previewWindow = '<div><button id = "openPreviwButton" onclick="handleClick()" class="open">Open Preview Window</button></div>'
+    $('#PreviewWindowLocation').html(previewWindow);
+    const openButton = document.querySelector('#openPreviwButton');
+        openButton.onclick = function(event) {  
+          window.open(inputObject,'popup','width=600,height=600'); 
+        }  
+  },
   makeAgreeWindow: function(inputObject) {
    
     const agreeWindow = Object.assign(this.defaultAgreeWindow, inputObject)

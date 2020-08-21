@@ -47,6 +47,8 @@ const captchaWindow = {
 const newCAPTCHA = new WindowGenerator()
 newCAPTCHA.makeCAPTCHAwindow(captchaWindow)
 
+const newPreview = new WindowGenerator()
+newPreview.makePreviewWindow("https://fas.calendar.utoronto.ca/section/Computer-Science")
 
 // const newInputWindow = new WindowGenerator()
 // const newNoticeWindow = new WindowGenerator()
