@@ -21,7 +21,7 @@
     <div class="functions">
       <h2> makeNoticeWindow(inputObject) </h2>
       <h3 class="subsection"> Description:</h3>
-      <h3 class="subtext"> This function creates a notice window with header, content, close button, image(optional), timer(optional), and inserts the resulting html to the corresponding notice window div.</h3>
+      <h3 class="subtext"> This function creates a notice window with header, content, footer, close button, image(optional), timer(optional), and inserts the resulting html to the corresponding notice window div.</h3>
       <h3 class="subsection"> Arguments:</h3>
       <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
       <table class="argsTable" border: 1px solid black >
@@ -39,6 +39,11 @@
           <th>content</th>
           <th>String</th>
           <th>The content of the notice window</th>
+        </tr>
+        <tr align= "left">
+          <th>footer</th>
+          <th>String</th>
+          <th>The footer of the notice window</th>
         </tr>
         <tr align= "left">
           <th>time</th>
@@ -146,7 +151,7 @@
     <div class="functions">
       <h2> makeAgreeWindow(inputObject) </h2>
       <h3 class="subsection"> Description:</h3>
-      <h3 class="subtext"> This function creates an agree window with header, content, agree button that goes to other links, disagree button to stay on the page, and inserts the resulting html to the corresponding agree window div.</h3>
+      <h3 class="subtext"> This function creates an agree window with header, content, footer, agree button that goes to other links, disagree button to stay on the page, and inserts the resulting html to the corresponding agree window div.</h3>
       <h3 class="subsection"> Arguments:</h3>
       <h3 class="subtext"> This function takes in an object that have the following propeties:</h3>
       <table class="argsTable">
@@ -164,6 +169,11 @@
           <th>content</th>
           <th>String</th>
           <th>The content of the agree window</th>
+        </tr>
+        <tr align= "left">
+          <th>footer</th>
+          <th>String</th>
+          <th>The footer of the agree window</th>
         </tr>
         <tr align= "left">
           <th>url</th>
@@ -266,7 +276,7 @@
     <div class="functions">
       <h2> makeInputWindow(inputObject)  </h2>
       <h3 class="subsection"> Description:</h3>
-      <h3 class="subtext"> This function creates a input window with header, content, first name and last name input fills, submit button, close button, timer(optional), and inserts the resulting html to the corresponding input window div</h3>
+      <h3 class="subtext"> This function creates a input window with header, content, first name and last name input fills, submit button, close button, timer(optional), and inserts the resulting html to the corresponding input window div. The submitted first and last name will be in the url for developers' further uses.</h3>
       <h3 class="subsection"> Arguments:</h3>
       <h3 class="subtext"> This function takes in an object that have the following properties:</h3>
       <table class="argsTable">

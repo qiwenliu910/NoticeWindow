@@ -4,13 +4,15 @@ function WindowGenerator() {
     time: null,
     header: "this is the notice header",
     content: "this is the notice content",
-    open: false
+    open: false,
+    footer: "this is the notice footer"
   } 
   this.defaultAgreeWindow = {
-    header: "this is the notice header",
-    content: "this is the notice content",
+    header: "this is the agree header",
+    content: "this is the agree content",
     url: null,
-    open: false
+    open: false,
+    footer: "this is agree footer"
   } 
   this.defaultInputWindow = {
     time:null,
@@ -47,10 +49,10 @@ WindowGenerator.prototype = {
       // }
       let window;
       if (agreeWindow.open) {
-        window = '<div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+        window = '<div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>',agreeWindow.footer,'</p></footer></div></div>')
       }
       else {
-        window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'.</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>Author: UofT CS department</p></footer></div></div>')
+        window = '<button id = "openAgreeButton" onclick="handleClick()" class="open">Open Agree Window</button><div class="agree-popup-overlay"><div class="agree-popup-content"><article><h2>'.concat('<div class="agreeWindowHeader">',agreeWindow.header,'</div></h2><p><div class="agreeWindowContent">',agreeWindow.content,'</div></p></article><button id = "AgreeButton" onclick="handleClick()" class="close">I Agree</button> <button id = "DisagreeButton" onclick="handleClick()" class="close">I Disagree</button><footer><p>',agreeWindow.footer,'</p></footer></div></div>')
       }
       $('#AgreeWindowLocation').html(window);
       if (agreeWindow.open) {
@@ -91,17 +93,17 @@ WindowGenerator.prototype = {
   const noticeWindow = Object.assign(this.defaultNoticeWindow, inputObject)
   let window;
   if(noticeWindow.imgSrc !== null && !noticeWindow.open) {
-    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>',noticeWindow.footer,'</p></footer></div></div>')
   }
   else if (noticeWindow.imgSrc === null && !noticeWindow.open) {
-    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')  
+    window = '<button id = "openNoticeButton" onclick="handleClick()" class="open">Open Notice Window</button><div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>',noticeWindow.footer,'</p></footer></div></div>')  
   }
   else if (noticeWindow.imgSrc !== null && noticeWindow.open) {
-    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')
+    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><img src = "',noticeWindow.imgSrc,'"/><br><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>',noticeWindow.footer,'</p></footer></div></div>')
   
   }
   else if (noticeWindow.imgSrc === null && noticeWindow.open) {
-    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>Author: UofT CS department</p></footer></div></div>')  
+    window = '<div class="notice-popup-overlay"><div class="notice-popup-content"><article><h2>'.concat('<div class="noticeWindowHeader">',noticeWindow.header,'</div></h2><p><div class="noticeWindowContent">',noticeWindow.content,'.</div></p></article><button id = "closeNoticeButton" onclick="handleClick()" class="close">Close</button> <footer><p>',noticeWindow.footer,'</p></footer></div></div>')  
   
   }
     $('#NoticeWindowLocation').html(window);
