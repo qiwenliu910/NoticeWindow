@@ -12,7 +12,9 @@ html {
 #CAPTCHAtable {
   border:2px solid black;
 }
-
+p {
+  line-height: 1.0;
+}
 .captcha-popup-overlay {
   /*Hides pop-up when there is no "active" class*/
   visibility: hidden;
@@ -57,7 +59,8 @@ html {
   color:black
 }
 .noticeWindowContent {
-  color: grey
+  color: grey;
+  line-height: 1.5;
 }
 .notice-popup-overlay.active {
   /*displays pop-up when "active" class is present*/
@@ -96,7 +99,10 @@ html {
   text-align: center;
   animation: fadeIn 0.1s ease-in-out forwards;
 }
-
+.inputWindowContent {
+  
+  line-height: 1.5;
+}
 .input-popup-content {
   /*Hides pop-up content when there is no "active" class */
   visibility: hidden;
@@ -230,7 +236,9 @@ html {
   /*Hides pop-up content when there is no "active" class */
   visibility: hidden;
 }
-
+.agreeWindowContent{
+  line-height: 1.5;
+}
 .agree-popup-content.active {
   /*Shows pop-up content when "active" class is present */
   visibility: visible;
