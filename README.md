@@ -1,5 +1,11 @@
 # js-library-liuqiwen
 
+This is a project for CSC309.
+
+This is a JavaScript library that supports building a consent / notice window for websites.
+
+It integrates useful DOM manipulation in the browser.
+
 ## Link to the landing page
 There are four sections in the landing page. 
 
