@@ -1,4 +1,4 @@
-# js-library-liuqiwen
+# NoticeWindow
 
 This is a project for CSC309.
 
